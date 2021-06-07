@@ -18,8 +18,8 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/posts', require('./routes/api/posts'));
 
-app.all('/',()=>{
-    res.send("please check ur path");
+app.use((req,res)=>{
+    res.send("please check your path");
 })
 const PORT = process.env.PORT || 5000;
 
