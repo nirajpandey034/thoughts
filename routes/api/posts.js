@@ -12,7 +12,7 @@ router.get('/',(req, res) => {
         res.send(posts);
     });
 })
-//saving the posts
+//saving the posts, request will contain (username, mood and text)
 router.post('/',(req,res)=>{
 
     let myPost = new Post(req.body);
