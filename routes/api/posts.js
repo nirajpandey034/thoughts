@@ -1,9 +1,23 @@
 const express = require('express');
+const Post = require('../../models/Post');
+
 const router = express.Router();
 
+router.post('/',(req,res)=>{
 
-router.get('/',(req,res)=>{
-    res.send("Here goes the post query");
+     const {mood, text} = req.body;
+    let myPost = new Post({
+        mood,
+        text
+    });
+
+     myPost.save()
+    .then(()=>{
+        res.send("Post successfully created")
+    })
+    .catch(err=>{
+        res.status(400).send(err);
+    })
 })
 
 
