@@ -3,6 +3,16 @@ const Post = require('../../models/Post');
 
 const router = express.Router();
 
+//fetching the posts
+router.get('/',(req, res) => {
+    Post.find(function(err, posts) {
+        if (err) 
+            res.send("Some error occured while fetching the posts")
+
+        res.send(posts);
+    });
+})
+//saving the posts
 router.post('/',(req,res)=>{
 
     let myPost = new Post(req.body);
