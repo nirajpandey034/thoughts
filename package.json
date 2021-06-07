@@ -1,7 +1,6 @@
 {
   "name": "newsfeed-app",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -30,5 +29,6 @@
   "devDependencies": {
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "description": ""
 }
