@@ -5,18 +5,13 @@ const router = express.Router();
 
 router.post('/',(req,res)=>{
 
-     const {mood, text} = req.body;
-    let myPost = new Post({
-        mood,
-        text
-    });
-
+    let myPost = new Post(req.body);
      myPost.save()
     .then(()=>{
         res.send("Post successfully created")
     })
     .catch(err=>{
-        res.status(400).send(err);
+        res.status(400).send("Unable to Post");
     })
 })
 
