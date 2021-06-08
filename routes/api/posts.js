@@ -1,5 +1,6 @@
 const express = require('express');
 const Post = require('../../models/Post');
+const auth = require('../../middleware/auth');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ router.get('/',(req, res) => {
     });
 })
 //saving the posts, request will contain (username, mood and text)
-router.post('/',(req,res)=>{
+router.post('/',auth,(req,res)=>{
 
     let myPost = new Post(req.body);
      myPost.save()
@@ -21,7 +22,7 @@ router.post('/',(req,res)=>{
         res.send("Post successfully created")
     })
     .catch(err=>{
-        res.status(400).send("Unable to Post");
+        res.status(400).send(err);
     })
 })
 
